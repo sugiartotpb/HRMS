@@ -1,0 +1,190 @@
+﻿@model PagedList.IPagedList<SJAHE_BASE_LIBRARY.Models.PA_EmployeeOccupation>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    #divFa {
+        color: #ff6a00;
+    }
+</style>
+<ul class="breadcrumb">
+    <li>
+        <a href="@Url.Action("Index", "Home")">HOME</a>
+    </li>
+    <li class="active">
+        EMP TARIF COMPONENT LIST
+    </li>
+</ul>
+<div class="box box-primary">
+    <div class="box-header ui-sortable-handle">
+        <i class="fa fa-clipboard"> EMPLOYEE TARIF COMPONENT</i>
+        <div class="box-tools pull-right">
+            <div class="btn-group">
+                @*<a class="btn btn-danger" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Create", "EmployeeTarifComponents")">
+                    <i class="fa fa-plus"> NEW</i>
+                </a>*@
+                <a class="btn btn-warning" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Index", "EmployeeTarifComponents")">
+                    <i class="fa fa-refresh"> REFRESH</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Export", "EmployeeTarifComponents")">
+                    <i class="fa fa-sign-out"> EXPORT</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Import", "EmployeeTarifComponents")">
+                    <i class="fa fa-arrow-circle-o-left"> IMPORT</i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="input-group input-group-sm">
+                    <input id="txtEmpID" name="txtEmpID" type="text" class="form-control" placeholder="EMP ID SEARCH..">
+                    <span class="input-group-btn">
+                        <button id="btnSearch" class="btn btn-danger fa fa-search btn-lg" name="btnFindCar" data-loading-text="<i class='fa fa-cog fa-spin'></i>"></button>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <a href="" onclick="return false;" id="btnClear" name="btnClear" title="CLEAR SEARCH">
+                        Clear Search
+                    </a>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div id="inline">
+            <div class="table-responsive">
+                <ul class="list-group">
+                    @{
+                        int i = 0;
+                        foreach (var item in Model)
+                        {
+                            i = i + 1;
+                            string strUserName = String.Empty;
+
+                            <li class="list-group-item">
+                                <div class="row toggle" id="dropdown-detail-@i" style="cursor: pointer;" data-toggle="detail-@i">
+                                    <div class="col-xs-10">
+                                        <h4><i class="fa fa-user"> @item.EmployeeNo</i></h4>
+                                    </div>
+                                    <div class="col-xs-2" id="divFa"><i class="fa fa-plus-square fa-2x pull-right"></i></div>
+                                </div>
+                                <div id="detail-@i">
+                                    <hr />
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="fluid-row">
+                                                <p><h5><i class="fa fa-list"></i> EMP TARIF COMPONENT LIST @item.EmployeeNo</h5></p>
+                                                <a href="@Url.Action("CreateByEmpID", "EmployeeTarifComponents", new { EmpID = item.EmployeeNo })" title="ADD NEW FIXED COMPONENT @item.EmployeeNo" class="btn btn-danger btn-sm">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                                <hr />
+                                                @Html.Action("EmpTarifComponentPartial", "EmployeeTarifComponents", new { EmpID = item.EmployeeNo })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div id='Paging' style="text-align: center">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        of @Model.PageCount &nbsp; Total Employee : @ViewBag.CountEmp
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('[id^=detail-]').hide();
+        $('.toggle').click(function () {
+            $input = $(this);
+            $target = $('#' + $input.attr('data-toggle'));
+            $target.slideToggle();
+            if ($input.find('.col-xs-2 i').attr('class') == "fa fa-plus-square fa-2x pull-right") {
+                $input.find('.col-xs-2 i').removeClass('fa-plus-square fa-2x');
+                $input.find('.col-xs-2 i').addClass('fa-minus-square fa-2x');
+            }
+            else if ($input.find('.col-xs-2 i').attr('class') == "fa pull-right fa-minus-square fa-2x") {
+                $input.find('.col-xs-2 i').removeClass('fa-minus-square fa-2x');
+                $input.find('.col-xs-2 i').addClass('fa-plus-square fa-2x');
+            }
+            else if ($input.find('.col-xs-2 i').attr('class') == "fa pull-right fa-plus-square fa-2x") {
+                $input.find('.col-xs-2 i').removeClass('fa-plus-square fa-2x');
+                $input.find('.col-xs-2 i').addClass('fa-minus-square fa-2x');
+            }
+
+        });
+
+        $("#btnSearch").click(function () {
+            var $this = $(this);
+            $this.removeClass('fa-search')
+            $this.button('loading');
+            var txtEmpID = $("#txtEmpID").val();
+            $.get('@Url.Action("SearchPartial", "EmployeeTarifComponents")', { txtEmpID: txtEmpID }, function (result) {
+                setTimeout(function () {
+                    $('#inline').html(result);
+                    $this.button('reset');
+                    $this.addClass('fa-search')
+                }, 1000);
+            });
+            $("#txtEmpID").val("");
+        })
+
+        $("#btnClear").click(function () {
+            var txtEmpID = $("#txtEmpID").val();
+            $.get('@Url.Action("SearchPartial", "EmployeeTarifComponents")', { txtEmpID: txtEmpID }, function (result) {
+                setTimeout(function () {
+                    $('#inline').html(result);
+                }, 1000);
+            });
+            $("#txtEmpID").val("");
+        })
+    });
+
+    $(function () {
+        $('#txtEmpID').autocomplete({
+            minlength: 3,
+            scroll: true,
+            source: function (request, response) {
+                var SearchText = $('#txtEmpID').val();
+                searchText_Old = SearchText;
+                $('#txtEmpID').addClass('AutoSuggestLoader');
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json",
+                    async: true,
+                    url: "@Url.Action("ListEmpAutoComplete", "EmployeeTarifComponents")",
+                    data: "{ Search_:'" + SearchText + "'}",
+                    contentType: "application/json;characterset=utf-8",
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.EmpID, value: item.EmpID };
+                        }))
+
+                    },
+                    error: function (result) {
+                        $('#txtEmpID').removeClass('AutoSuggestLoader');
+                        console.log(result);
+                    }
+                });
+            },
+            select: function (event, ui) {
+                $('#txtEmpID').val(ui.item.value);
+                return false;
+            },
+            response: function (e, u) {
+                $('#txtEmpID').removeClass('AutoSuggestLoader');
+            }
+        })
+    });
+</script>

@@ -1,0 +1,72 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.PY_TarifComponent
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PY_TarifComponent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TarifComponentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TarifComponentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TF01)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TF01)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TF02)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TF02)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TF03)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TF03)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TarifComponentCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TarifComponentCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TarifComponentDateCreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TarifComponentDateCreatedOn)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

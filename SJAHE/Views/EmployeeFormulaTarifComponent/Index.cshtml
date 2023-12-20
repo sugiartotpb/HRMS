@@ -1,0 +1,89 @@
+﻿@model IEnumerable<SJAHE_BASE_LIBRARY.Models.PY_EmployeeFormulaTarifComponent>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="box box-primary">
+    <div class="box-header ui-sortable-handle">
+        <i class="fa fa-clipboard"> FORMULA TARIF COMPONENT</i>
+        <div class="box-tools pull-right">
+            <div class="btn-group">
+                <a class="btn btn-danger" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Create", "EmployeeFormulaTarifComponent")">
+                    <i class="fa fa-plus"> NEW</i>
+                </a>
+                <a class="btn btn-warning" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Index", "EmployeeFormulaTarifComponent")">
+                    <i class="fa fa-refresh"> REFRESH</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Export", "EmployeeFormulaTarifComponent")">
+                    <i class="fa fa-sign-out"> EXPORT</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Import", "EmployeeFormulaTarifComponent")">
+                    <i class="fa fa-arrow-circle-o-left"> IMPORT</i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PY_TarifComponent.TarifComponentName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FormulaSequence)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Condition)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Formula)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FlagProcess)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PY_TarifComponent.TarifComponentName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FormulaSequence)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Condition)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Formula)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FlagProcess)
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-primary" data-position="bottom" data-delay="50" title="Edit Records" href="@Url.Action("Edit", "EmployeeFormulaTarifComponent", new { id=item.FormulaTarifComponentID })">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-info" data-position="bottom" data-delay="50" title="Detail Records" href="@Url.Action("Details", "EmployeeFormulaTarifComponent", new { id=item.FormulaTarifComponentID })">
+                                        <i class="fa fa-list"></i>
+                                    </a>
+                                    <a class="btn btn-warning" data-position="bottom" data-delay="50" title="Delete Records" href="@Url.Action("Delete", "EmployeeFormulaTarifComponent", new { id=item.FormulaTarifComponentID })">
+                                        <i class="fa fa-remove"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

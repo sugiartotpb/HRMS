@@ -1,0 +1,58 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.PY_EmployeeFormulaFixedComponent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PY_EmployeeFormulaFixedComponent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PY_FixedComponent.FixedComponentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PY_FixedComponent.FixedComponentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormulaSequence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormulaSequence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Condition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Condition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Formula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlagProcess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlagProcess)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FormulaFixedComponentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

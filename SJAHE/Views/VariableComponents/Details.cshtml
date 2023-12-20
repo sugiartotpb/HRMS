@@ -1,0 +1,66 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.PY_VariableComponent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PY_VariableComponent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VariableComponentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VariableComponentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.V01)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.V01)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.V02)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.V02)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.V03)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.V03)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VariableComponentCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VariableComponentCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VariableComponentDateCreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VariableComponentDateCreatedOn)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VariableComponentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

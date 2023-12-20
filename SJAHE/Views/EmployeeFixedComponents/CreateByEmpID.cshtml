@@ -1,0 +1,126 @@
+﻿@model IEnumerable<SJAHE_BASE_LIBRARY.Models.PY_FixedComponent>
+
+@{
+    ViewBag.Title = "CreateByEmpID";
+}
+
+<ul class="breadcrumb">
+    <li>
+        <a href="@Url.Action("Index", "Home")">HOME</a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "EmployeeFixedComponents")">EMP FIXED COMPONENT LIST</a>
+    </li>
+    <li class="active">
+        EMP FIXED COMPONENT CREATE
+    </li>
+</ul>
+
+<style>
+    .material-switch > input[type="checkbox"] {
+        display: none;
+    }
+
+    .material-switch > label {
+        cursor: pointer;
+        height: 0px;
+        position: relative;
+        width: 40px;
+    }
+
+        .material-switch > label::before {
+            background: rgb(0, 0, 0);
+            box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            content: '';
+            height: 16px;
+            margin-top: -8px;
+            position: absolute;
+            opacity: 0.3;
+            transition: all 0.4s ease-in-out;
+            width: 40px;
+        }
+
+        .material-switch > label::after {
+            background: rgb(255, 255, 255);
+            border-radius: 16px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+            content: '';
+            height: 24px;
+            left: -4px;
+            margin-top: -8px;
+            position: absolute;
+            top: -4px;
+            transition: all 0.3s ease-in-out;
+            width: 24px;
+        }
+
+    .material-switch > input[type="checkbox"]:checked + label::before {
+        background: inherit;
+        opacity: 0.5;
+    }
+
+    .material-switch > input[type="checkbox"]:checked + label::after {
+        background: inherit;
+        left: 20px;
+    }
+</style>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-blue">
+                <div class="panel-heading">
+                    <h5>FIXED COMPONENT LIST</h5>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <input type="hidden" value="@ViewBag.Count" id="Count" name="Count" />
+                        <input type="hidden" value="@ViewBag.EmpID" id="EmployeeNo" name="EmployeeNo" />
+                        @{
+                            int j = 0;
+                            foreach (var i in Model)
+                            {
+                                j += 1;
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @i.FixedComponentName
+                                        <div class="material-switch pull-right">
+                                            <input type="checkbox" onclick="FixedFunction(this);" id="@j" name="chkFixed[]" title="@j" value="@i.FixedComponentID" />
+                                            <label for="@j" class="label-primary"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" id="FixedValue_@j" name="txtValue[]" class="form-control" disabled="disabled" value="0" />
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+                            <input type="submit" value="Create" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    function FixedFunction(a) {
+        debugger;
+        if (a.checked) {
+            var a = $(a).attr('id');
+            var b = 'FixedValue_' + a;
+            document.getElementById(b).disabled = false;
+        }
+        else {
+            var a = $(a).attr('id');
+            var b = 'FixedValue_' + a;
+            document.getElementById(b).disabled = true;
+        }
+    }
+</script>

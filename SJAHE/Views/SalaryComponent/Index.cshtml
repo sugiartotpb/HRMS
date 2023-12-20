@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SJAHE_BASE_LIBRARY.Models.PY_SalaryComponent>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="box box-primary">
+    <div class="box-header ui-sortable-handle">
+        <i class="fa fa-clipboard"> SALARY COMPONENT</i>
+        <div class="box-tools pull-right">
+            <div class="btn-group">
+                <a class="btn btn-danger" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Create", "SalaryComponent")">
+                    <i class="fa fa-plus"> NEW</i>
+                </a>
+                <a class="btn btn-warning" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Index", "SalaryComponent")">
+                    <i class="fa fa-refresh"> REFRESH</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Export", "SalaryComponent")">
+                    <i class="fa fa-sign-out"> EXPORT</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Import", "SalaryComponent")">
+                    <i class="fa fa-arrow-circle-o-left"> IMPORT</i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SalaryComponentName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DateCreated)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SalaryComponentName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedBy)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateCreated)
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-primary" data-position="bottom" data-delay="50" title="Edit Records" href="@Url.Action("Edit", "SalaryComponent", new { id=item.SalaryComponentID })">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-info" data-position="bottom" data-delay="50" title="Detail Records" href="@Url.Action("Details", "SalaryComponent", new { id=item.SalaryComponentID })">
+                                        <i class="fa fa-list"></i>
+                                    </a>
+                                    <a class="btn btn-warning" data-position="bottom" data-delay="50" title="Delete Records" href="@Url.Action("Delete", "SalaryComponent", new { id=item.SalaryComponentID })">
+                                        <i class="fa fa-remove"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

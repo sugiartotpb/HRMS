@@ -1,0 +1,95 @@
+﻿@model IEnumerable<SJAHE_BASE_LIBRARY.Models.PY_VariableComponent>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="box box-primary">
+    <div class="box-header ui-sortable-handle">
+        <i class="fa fa-clipboard"> VARIABLE COMPONENT</i>
+        <div class="box-tools pull-right">
+            <div class="btn-group">
+                <a class="btn btn-danger" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Create", "VariableComponents")">
+                    <i class="fa fa-plus"> NEW</i>
+                </a>
+                <a class="btn btn-warning" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Index", "VariableComponents")">
+                    <i class="fa fa-refresh"> REFRESH</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Export", "VariableComponents")">
+                    <i class="fa fa-sign-out"> EXPORT</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Import", "VariableComponents")">
+                    <i class="fa fa-arrow-circle-o-left"> IMPORT</i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.VariableComponentName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.V01)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.V02)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.V03)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.VariableComponentCreatedBy)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.VariableComponentDateCreatedOn)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VariableComponentName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.V01)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.V02)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.V03)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VariableComponentCreatedBy)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VariableComponentDateCreatedOn)
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-primary" data-position="bottom" data-delay="50" title="Edit Records" href="@Url.Action("Edit", "VariableComponents", new { id=item.VariableComponentID })">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-info" data-position="bottom" data-delay="50" title="Detail Records" href="@Url.Action("Details", "VariableComponents", new { id=item.VariableComponentID })">
+                                        <i class="fa fa-list"></i>
+                                    </a>
+                                    <a class="btn btn-warning" data-position="bottom" data-delay="50" title="Delete Records" href="@Url.Action("Delete", "VariableComponents", new { id=item.VariableComponentID })">
+                                        <i class="fa fa-remove"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

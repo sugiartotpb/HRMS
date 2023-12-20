@@ -1,0 +1,72 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.PA_Level
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PA_Level</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PA_LevelType.LevelTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PA_LevelType.LevelTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LevelCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LevelCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LevelName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LevelName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

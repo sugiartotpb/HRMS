@@ -1,0 +1,74 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.SC_User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SC_User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserFullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserFullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserEmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserEmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserContactNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserContactNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,66 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.PY_NonFixedComponent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PY_NonFixedComponent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NonFixedComponentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NonFixedComponentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NF01)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NF01)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NF02)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NF02)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NF03)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NF03)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NonFixedComponentCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NonFixedComponentCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NonFixedComponentDateCreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NonFixedComponentDateCreatedOn)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NonFixedComponentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

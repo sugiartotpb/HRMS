@@ -1,0 +1,48 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.SC_Role
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SC_Role</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RoleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoleCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoleCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoleDateCreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoleDateCreatedOn)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

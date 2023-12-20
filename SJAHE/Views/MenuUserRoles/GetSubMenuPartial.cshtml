@@ -1,0 +1,24 @@
+﻿@model IEnumerable<SJAHE_BASE_LIBRARY.Models.AP_SubMenu>
+
+@*<ul class="list-group">
+        @foreach (var i in Model)
+        {
+            <li class="list-group-item">
+                <input type="checkbox" class="chkSubMenu" value="@i.SubMenuID" /> @i.SubMenuName
+            </li>
+        }
+    </ul>*@
+
+<div class="row">
+    @foreach (var i in Model)
+    {
+        <div class="col-md-3">
+            <input type="checkbox" class="chkSubMenu" value="@i.SubMenuID" name="SubMenuID" onclick="SubMenuFunction();" /> @i.SubMenuName
+            @*<input type="text" id="test" name="test" />*@
+        </div>
+    }
+</div>
+
+<script>
+    
+</script>

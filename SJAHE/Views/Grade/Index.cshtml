@@ -1,0 +1,95 @@
+﻿@model IEnumerable<SJAHE_BASE_LIBRARY.Models.PA_Grade>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="box box-primary">
+    <div class="box-header ui-sortable-handle">
+        <i class="fa fa-clipboard"> GRADE</i>
+        <div class="box-tools pull-right">
+            <div class="btn-group">
+                <a class="btn btn-danger" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Create", "Grade")">
+                    <i class="fa fa-plus"> NEW</i>
+                </a>
+                <a class="btn btn-warning" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Index", "Grade")">
+                    <i class="fa fa-refresh"> REFRESH</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Export", "Grade")">
+                    <i class="fa fa-sign-out"> EXPORT</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Import", "Grade")">
+                    <i class="fa fa-arrow-circle-o-left"> IMPORT</i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.GradeCode)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.GradeName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Hierarchy)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Note)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DateCreated)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GradeCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GradeName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Hierarchy)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Note)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedBy)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateCreated)
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-primary" data-position="bottom" data-delay="50" title="Edit Records" href="@Url.Action("Edit", "Grade", new { id=item.GradeID })">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-info" data-position="bottom" data-delay="50" title="Detail Records" href="@Url.Action("Details", "Grade", new { id=item.GradeID })">
+                                        <i class="fa fa-list"></i>
+                                    </a>
+                                    <a class="btn btn-warning" data-position="bottom" data-delay="50" title="Delete Records" href="@Url.Action("Delete", "Grade", new { id=item.GradeID })">
+                                        <i class="fa fa-remove"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

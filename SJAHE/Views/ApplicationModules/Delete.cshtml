@@ -1,0 +1,56 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.AP_ApplicationModule
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>AP_ApplicationModule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationModuleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationModuleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationModuleCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationModuleCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationModuleCreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationModuleCreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationModuleStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationModuleStatus)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

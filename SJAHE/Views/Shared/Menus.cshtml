@@ -1,0 +1,143 @@
+﻿@model IEnumerable<SJAHE.Models.Menu_Model>
+@using System.Data.Entity;
+@{
+
+    SJAHE_BASE_LIBRARY.Models.sjahe_dbcontext db = new SJAHE_BASE_LIBRARY.Models.sjahe_dbcontext();
+    foreach (var a in Model)
+    {
+        int userRoleID = ViewBag.UserRoleID;
+        var dbMenuUser = db.SC_MenuUserRole.Include(b => b.AP_SubMenu).Where(b => b.UserRoleID == userRoleID && b.MenuID == a.MenuID).Select(b => new { b.SubMenuID, b.AP_SubMenu.SubMenuName, b.AP_SubMenu.Sequence }).Distinct().OrderBy(b => b.Sequence).ToList();
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-book"></i> <span>@a.MenuName</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                @foreach (var c in dbMenuUser.OrderBy(h=>h.Sequence))
+                {
+                    var dbSubMenuLast = db.SC_MenuUserRole.Include(d=>d.AP_SubChildMenu).Where(d => d.UserRoleID == userRoleID && d.SubMenuID == c.SubMenuID).Select(d => new { d.SubChildMenuID, d.AP_SubChildMenu.SubChildMenuName, d.AP_SubChildMenu.SubChildUrl }).Distinct().ToList();
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-th-list"></i> @c.SubMenuName
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            @foreach (var d in dbSubMenuLast)
+                            {
+                                <li><a href="@Url.Action("Index", d.SubChildUrl)"><i class="fa fa-link"></i> @d.SubChildMenuName</a></li>
+                            }
+                        </ul>
+                    </li>
+                }
+            </ul>
+
+        </li>
+    }
+    @*foreach (var a in Model)
+    {
+        var dbMenu = a.AP_Menu.Where(m => m.ApplicationModuleID == a.ApplicationModuleID).ToList();
+        foreach (var b in dbMenu)
+        {
+            var dbSubMenu = db.AP_SubMenu.Where(s => s.MenuID == b.MenuID).ToList();
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-book"></i> <span>@b.MenuName</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    @foreach (var c in dbSubMenu)
+                    {
+                        var dbSubMenuLast = db.AP_SubChildMenu.Where(s => s.SubMenuID == c.SubMenuID).ToList();
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-th-list"></i> @c.SubMenuName
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                @foreach (var d in dbSubMenuLast)
+                                {
+                                    <li><a href="@Url.Action("Index", d.SubChildUrl)"><i class="fa fa-link"></i> @d.SubChildMenuName</a></li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                </ul>
+
+            </li>
+        }
+    }*@
+}
+@*<section class="sidebar" data-widget="tree">
+    
+</section>*@
+
+@*
+     <li>
+        <a href="@(Url.Action("","",new{ Area = ""}))">
+            <i class="fa fa-th fa-fw"></i> <span>Widgets</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="@(Url.Action("","",new{ Area = ""}))">
+            <i class="fa fa-th fa-fw"></i> <span>Widgets</span>
+            <span class="pull-right-container">
+                <small class="label pull-right bg-green">new</small>
+            </span>
+        </a>
+    </li>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-files-o fa-fw"></i>
+            <span>Layout Options</span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="@(Url.Action("","",new{ Area = ""}))"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
+        </ul>
+    </li>
+
+    <li class="treeview">
+            <a href="#">
+                <i class="fa fa-share"></i> <span>Multilevel</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-circle-o"></i> Level One
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle-o"></i> Level Two
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+            </ul>
+        </li>
+*@

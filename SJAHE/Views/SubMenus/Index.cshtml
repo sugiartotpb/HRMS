@@ -1,0 +1,89 @@
+﻿@model IEnumerable<SJAHE_BASE_LIBRARY.Models.AP_SubMenu>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="box box-primary">
+    <div class="box-header ui-sortable-handle">
+        <i class="fa fa-clipboard"> Sub Menu</i>
+        <div class="box-tools pull-right">
+            <div class="btn-group">
+                <a class="btn btn-danger" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Create", "SubMenus")">
+                    <i class="fa fa-plus"> NEW</i>
+                </a>
+                <a class="btn btn-warning" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Index", "SubMenus")">
+                    <i class="fa fa-refresh"> REFRESH</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Export", "SubMenus")">
+                    <i class="fa fa-sign-out"> EXPORT</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Import", "SubMenus")">
+                    <i class="fa fa-arrow-circle-o-left"> IMPORT</i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AP_Menu.MenuName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SubMenuName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SubMenuCreatedBy)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SubMenuCreatedOn)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SubMenuStatus)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AP_Menu.MenuName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubMenuName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubMenuCreatedBy)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubMenuCreatedOn)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubMenuStatus)
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-primary" data-position="bottom" data-delay="50" title="Edit Records" href="@Url.Action("Edit", "SubMenus", new { id=item.SubMenuID })">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-info" data-position="bottom" data-delay="50" title="Copy Records" href="@Url.Action("Copy", "SubMenus", new { id=item.SubMenuID })">
+                                        <i class="fa fa-list"></i>
+                                    </a>
+                                    <a class="btn btn-warning" data-position="bottom" data-delay="50" title="Delete Records" href="@Url.Action("Delete", "SubMenus", new { id=item.SubMenuID })">
+                                        <i class="fa fa-remove"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

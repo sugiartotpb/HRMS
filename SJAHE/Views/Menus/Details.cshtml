@@ -1,0 +1,58 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.AP_Menu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AP_Menu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AP_ApplicationModule.ApplicationModuleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AP_ApplicationModule.ApplicationModuleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MenuName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MenuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MenuCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MenuCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MenuCreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MenuCreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MenuStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MenuStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MenuID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

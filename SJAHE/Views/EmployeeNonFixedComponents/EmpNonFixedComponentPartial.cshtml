@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SJAHE_BASE_LIBRARY.Models.PY_EmpNonFixedComponent>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PY_NonFixedComponent.NonFixedComponentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NonFixedComponentValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ENF01)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ENF02)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ENF03)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpNonFixedComponentCreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpNonFixedComponentDateCreatedOn)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PY_NonFixedComponent.NonFixedComponentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NonFixedComponentValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ENF01)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ENF02)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ENF03)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpNonFixedComponentCreatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpNonFixedComponentDateCreatedOn)
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-primary" data-position="bottom" data-delay="50" title="Edit Records" href="@Url.Action("Edit", "EmployeeNonFixedComponents", new { id=item.EmpNonFixedComponentID })">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a class="btn btn-info" data-position="bottom" data-delay="50" title="Detail Records" href="@Url.Action("Details", "EmployeeNonFixedComponents", new { id=item.EmpNonFixedComponentID })">
+                            <i class="fa fa-list"></i>
+                        </a>
+                        <a class="btn btn-warning" data-position="bottom" data-delay="50" title="Delete Records" href="@Url.Action("Delete", "EmployeeNonFixedComponents", new { id=item.EmpNonFixedComponentID })">
+                            <i class="fa fa-remove"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

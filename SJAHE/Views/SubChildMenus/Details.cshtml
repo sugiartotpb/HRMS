@@ -1,0 +1,66 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.AP_SubChildMenu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AP_SubChildMenu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AP_SubMenu.SubMenuName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AP_SubMenu.SubMenuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubChildMenuName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubChildMenuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubChildUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubChildUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubChildMenuCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubChildMenuCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubChildMenuCreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubChildMenuCreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubChildMenuStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubChildMenuStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SubChildMenuID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

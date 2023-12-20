@@ -1,0 +1,39 @@
+﻿@model SJAHE.Models.Closing_Model
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("ClsProcess", "ClosingProcess"))
+{
+    @Html.AntiForgeryToken()
+    <div class="panel panel-pink">
+        <div class="panel-heading">
+            <p>
+                <h4>CLOSING PROCESS FORM</h4>
+            </p>
+        </div>
+        <div class="panel-body">
+            <h4>PROCESS</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label>Month</label>
+                @Html.EditorFor(model => model.Month, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Month, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label>Year</label>
+                @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

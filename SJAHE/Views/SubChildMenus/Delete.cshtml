@@ -1,0 +1,72 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.AP_SubChildMenu
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>AP_SubChildMenu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AP_SubMenu.SubMenuName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AP_SubMenu.SubMenuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubChildMenuName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubChildMenuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubChildUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubChildUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubChildMenuCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubChildMenuCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubChildMenuCreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubChildMenuCreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubChildMenuStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubChildMenuStatus)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,119 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.PY_PayrollPeriod
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="panel panel-pink">
+        <div class="panel-heading">
+            <h4><i class="fa fa-edit"></i> EDIT FORM</h4>
+        </div>
+        <div class="panel-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.PayrollPeriodID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Month, htmlAttributes: new { @class = "control-label" })
+
+                @Html.EditorFor(model => model.Month, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Month, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label" })
+
+                @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SalaryStartDate, htmlAttributes: new { @class = "control-label" })
+
+                @Html.EditorFor(model => model.SalaryStartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SalaryStartDate, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SalaryEndDate, htmlAttributes: new { @class = "control-label" })
+
+                @Html.EditorFor(model => model.SalaryEndDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SalaryEndDate, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.OvertimeStartDate, htmlAttributes: new { @class = "control-label" })
+
+                @Html.EditorFor(model => model.OvertimeStartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OvertimeStartDate, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.OvertimeEndDate, htmlAttributes: new { @class = "control-label" })
+
+                @Html.EditorFor(model => model.OvertimeEndDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OvertimeEndDate, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AbsenteeismStartDate, htmlAttributes: new { @class = "control-label" })
+
+                @Html.EditorFor(model => model.AbsenteeismStartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AbsenteeismStartDate, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AbsenteeismEndDate, htmlAttributes: new { @class = "control-label" })
+
+                @Html.EditorFor(model => model.AbsenteeismEndDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AbsenteeismEndDate, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.JamsostekStartDate, htmlAttributes: new { @class = "control-label" })
+
+                @Html.EditorFor(model => model.JamsostekStartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.JamsostekStartDate, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.JamsostekEndDate, htmlAttributes: new { @class = "control-label" })
+
+                @Html.EditorFor(model => model.JamsostekEndDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.JamsostekEndDate, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label" })
+
+                @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

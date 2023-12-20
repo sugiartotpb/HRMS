@@ -1,0 +1,80 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.SC_MenuUserRole
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="panel panel-pink">
+        <div class="panel-heading">
+            <h4><i class="fa fa-edit"></i> EDIT FORM</h4>
+        </div>
+        <div class="panel-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.MenuUserRoleID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserRoleID, "UserRoleID", htmlAttributes: new { @class = "control-label" })
+
+                @Html.DropDownList("UserRoleID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UserRoleID, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ApplicationModuleID, "ApplicationModuleID", htmlAttributes: new { @class = "control-label" })
+
+                @Html.DropDownList("ApplicationModuleID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ApplicationModuleID, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MenuID, "MenuID", htmlAttributes: new { @class = "control-label" })
+
+                @Html.DropDownList("MenuID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MenuID, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SubMenuID, "SubMenuID", htmlAttributes: new { @class = "control-label" })
+
+                @Html.DropDownList("SubMenuID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SubMenuID, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SubChildMenuID, "SubChildMenuID", htmlAttributes: new { @class = "control-label" })
+
+                @Html.DropDownList("SubChildMenuID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SubChildMenuID, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MenuUserRoleStatus, htmlAttributes: new { @class = "control-label" })
+
+                <br />
+                @Html.EditorFor(model => model.MenuUserRoleStatus)
+                @Html.ValidationMessageFor(model => model.MenuUserRoleStatus, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

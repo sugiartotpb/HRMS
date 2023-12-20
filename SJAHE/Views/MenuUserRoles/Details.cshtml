@@ -1,0 +1,82 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.SC_MenuUserRole
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SC_MenuUserRole</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AP_ApplicationModule.ApplicationModuleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AP_ApplicationModule.ApplicationModuleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AP_Menu.MenuName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AP_Menu.MenuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AP_SubChildMenu.SubChildMenuName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AP_SubChildMenu.SubChildMenuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AP_SubMenu.SubMenuName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AP_SubMenu.SubMenuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SC_UserRole.UserRoleID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SC_UserRole.UserRoleID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MenuUserRoleCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MenuUserRoleCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MenuUserRoleCreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MenuUserRoleCreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MenuUserRoleStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MenuUserRoleStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MenuUserRoleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

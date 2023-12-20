@@ -1,0 +1,52 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.PY_EmpFixedComponent
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<ul class="breadcrumb">
+    <li>
+        <a href="@Url.Action("Index", "Home")">HOME</a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "EmployeeFixedComponents")">EMP FIXED COMPONENT LIST</a>
+    </li>
+    <li class="active">
+        EMP FIXED COMPONENT CREATE
+    </li>
+</ul>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="panel panel-pink">
+        <div class="panel-heading">
+            <p>
+                <h4>CREATE FORM</h4>
+            </p>
+        </div>
+        <div class="panel-body">
+            <h4>PY_EmpFixedComponent</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.EmployeeNo, htmlAttributes: new { @class = "control-label" })
+
+                @Html.DropDownList("EmployeeNo", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EmployeeNo, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+                @Html.Action("ListFixedComponentPartial", "EmployeeFixedComponents")
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <input type="submit" value="Create" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

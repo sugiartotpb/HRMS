@@ -1,0 +1,66 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.PY_TarifComponent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PY_TarifComponent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TarifComponentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TarifComponentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TF01)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TF01)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TF02)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TF02)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TF03)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TF03)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TarifComponentCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TarifComponentCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TarifComponentDateCreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TarifComponentDateCreatedOn)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TarifComponentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

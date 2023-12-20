@@ -1,0 +1,92 @@
+﻿@model IEnumerable<SJAHE_BASE_LIBRARY.Models.SC_UserRole>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="box box-primary">
+    <div class="box-header ui-sortable-handle">
+        <i class="fa fa-clipboard"> USER ROLES</i>
+        <div class="box-tools pull-right">
+            <div class="btn-group">
+                <a class="btn btn-danger" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Create", "UserRoles")">
+                    <i class="fa fa-plus"> NEW</i>
+                </a>
+                <a class="btn btn-warning" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Index", "UserRoles")">
+                    <i class="fa fa-refresh"> REFRESH</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Export", "UserRoles")">
+                    <i class="fa fa-sign-out"> EXPORT</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Import", "UserRoles")">
+                    <i class="fa fa-arrow-circle-o-left"> IMPORT</i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SC_Role.RoleName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SC_User.UserFullName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UserRoleCreatedBy)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UserRoleDateCreatedOn)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UserRoleStatus)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SC_Role.RoleName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SC_User.UserFullName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserRoleCreatedBy)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserRoleDateCreatedOn)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserRoleStatus)
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-primary" data-position="bottom" data-delay="50" title="Edit Records" href="@Url.Action("Edit", "UserRoles", new { id=item.UserRoleID })">
+
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-info" data-position="bottom" data-delay="50" title="Copy Records" href="@Url.Action("Copy", "UserRoles", new { id=item.UserRoleID })">
+
+                                        <i class="fa fa-files-o"></i>
+                                    </a>
+                                    <a class="btn btn-warning" data-position="bottom" data-delay="50" title="Delete Records" href="@Url.Action("Delete", "UserRoles", new { id=item.UserRoleID })">
+
+                                        <i class="fa fa-remove"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

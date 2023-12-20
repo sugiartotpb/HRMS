@@ -1,0 +1,66 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.PA_Level
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PA_Level</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PA_LevelType.LevelTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PA_LevelType.LevelTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LevelCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LevelCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LevelName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LevelName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LevelID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

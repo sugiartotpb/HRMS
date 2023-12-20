@@ -1,0 +1,78 @@
+﻿@model IEnumerable<SJAHE_BASE_LIBRARY.Models.PY_EmpVariableComponent>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PY_VariableComponent.VariableComponentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VariableComponentValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EV01)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EV02)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EV03)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpVariableComponentCreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpVariableComponentDateCreatedOn)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PY_VariableComponent.VariableComponentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VariableComponentValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EV01)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EV02)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EV03)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpVariableComponentCreatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpVariableComponentDateCreatedOn)
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-primary" data-position="bottom" data-delay="50" title="Edit Records" href="@Url.Action("Edit", "EmployeeVariableComponents", new { id=item.EmpVariableComponentID })">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a class="btn btn-info" data-position="bottom" data-delay="50" title="Detail Records" href="@Url.Action("Details", "EmployeeVariableComponents", new { id=item.EmpVariableComponentID })">
+                            <i class="fa fa-list"></i>
+                        </a>
+                        <a class="btn btn-warning" data-position="bottom" data-delay="50" title="Delete Records" href="@Url.Action("Delete", "EmployeeVariableComponents", new { id=item.EmpVariableComponentID })">
+                            <i class="fa fa-remove"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

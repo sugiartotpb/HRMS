@@ -1,0 +1,137 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.SC_MenuUserRole
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<style>
+    .loader {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: #FFF;
+        background-image: url('../../Content/Images/gif-load.gif');
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 10000000;
+        opacity: 0.2;
+        filter: alpha(opacity=40); /* For IE8 and earlier */
+    }
+</style>
+
+<div id="divLoadingList"></div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="panel panel-pink">
+        <div class="panel-heading">
+            <p>
+                <h4>CREATE FORM</h4>
+            </p>
+        </div>
+        <div class="panel-body">
+            <h4>SC_MenuUserRole</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserRoleID, "UserRoleID", htmlAttributes: new { @class = "control-label" })
+
+                @Html.DropDownList("UserRoleID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UserRoleID, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ApplicationModuleID, "ApplicationModuleID", htmlAttributes: new { @class = "control-label" })
+
+                @Html.DropDownList("ApplicationModuleID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ApplicationModuleID, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MenuID, "MenuID", htmlAttributes: new { @class = "control-label" })
+
+                @Html.DropDownList("MenuID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MenuID, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group" id="divSubMenu">
+                <div id="inline1"></div>
+            </div>
+
+            <div class="form-group">
+                <div id="inline2"></div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MenuUserRoleStatus, htmlAttributes: new { @class = "control-label" })
+
+                <br />
+                @Html.EditorFor(model => model.MenuUserRoleStatus)
+                @Html.ValidationMessageFor(model => model.MenuUserRoleStatus, "", new { @class = "text-danger" })
+
+
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#ApplicationModuleID").change(function () {
+            $("#divLoadingList").addClass('loader');
+            $.get('@Url.Action("GetMenu", "MenuUserRoles")', { ApplicationID: $("#ApplicationModuleID").val() }, function (data) {
+                var terminal_code = $('#MenuID');
+                var items = '';
+                $("#MenuID").empty();
+                items += "<option value='"+ "" +"'>" + "--SELECT MENU--" + "</option>";
+                $.each(data, function (i, state) {
+                    items += "<option value='" + state.MenuID + "'>" + state.MenuName + "</option>";
+                });
+                $("#MenuID").html(items);
+            });
+            $("#divLoadingList").removeClass('loader');
+        });
+
+        $("#MenuID").change(function () {
+            $("#divLoadingList").addClass('loader');
+            $.get('@Url.Action("GetSubMenuPartial", "MenuUserRoles")', { MenuID: $("#MenuID").val() }, function (result) {
+                $('#inline1').html(result);
+            });
+            $("#divLoadingList").removeClass('loader');
+        });
+    });
+
+    function SubMenuFunction() {
+        debugger;
+        var ChildID = []
+        if ($("input[name='SubMenuID']").is(":checked")) {
+            $.each($("input[name='SubMenuID']:checked"), function () {
+                ChildID.push(parseInt($(this).val()));
+            });
+            $.ajax({
+                type: 'Post',
+                url: '@Url.Action("GetSubChildMenuPartial", "MenuUserRoles")',
+                data: JSON.stringify({ ChildID: ChildID }),
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    $('#inline2').html(result);
+                }
+            });
+        }
+    }
+</script>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2A67B210-8669-4DFF-A812-D70BED2C996A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SJAHE_BASE_LIBRARY</RootNamespace>
+    <AssemblyName>SJAHE_BASE_LIBRARY</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\GetFormulaSalaryValue.cs" />
+    <Compile Include="Helpers\GetFormulaValue.cs" />
+    <Compile Include="Models\AP_ApplicationModule.cs" />
+    <Compile Include="Models\AP_Menu.cs" />
+    <Compile Include="Models\AP_SubChildMenu.cs" />
+    <Compile Include="Models\AP_SubMenu.cs" />
+    <Compile Include="Models\PA_EmployeeMaster.cs" />
+    <Compile Include="Models\PA_EmployeeOccupation.cs" />
+    <Compile Include="Models\PA_Grade.cs" />
+    <Compile Include="Models\PA_Level.cs" />
+    <Compile Include="Models\PA_LevelType.cs" />
+    <Compile Include="Models\PA_Position.cs" />
+    <Compile Include="Models\PY_EmpFixedComponent.cs" />
+    <Compile Include="Models\PY_EmployeeAbsenteeismComponents.cs" />
+    <Compile Include="Models\PY_EmployeeFormulaComponent.cs" />
+    <Compile Include="Models\PY_EmployeeFormulaFixedComponent.cs" />
+    <Compile Include="Models\PY_EmployeeFormulaNonFixedComponent.cs" />
+    <Compile Include="Models\PY_EmployeeFormulaTarifComponent.cs" />
+    <Compile Include="Models\PY_EmployeeFormulaVariableComponent.cs" />
+    <Compile Include="Models\PY_EmpNonFixedComponent.cs" />
+    <Compile Include="Models\PY_EmpSalaryCalculated.cs" />
+    <Compile Include="Models\PY_EmpTarifComponent.cs" />
+    <Compile Include="Models\PY_EmpVariableComponent.cs" />
+    <Compile Include="Models\PY_FixedComponent.cs" />
+    <Compile Include="Models\PY_MonthlyEmpFixedComponent.cs" />
+    <Compile Include="Models\PY_MonthlyEmpNonFixedComponent.cs" />
+    <Compile Include="Models\PY_MonthlyEmpTarifComponent.cs" />
+    <Compile Include="Models\PY_MonthlyEmpVariableComponent.cs" />
+    <Compile Include="Models\PY_NonFixedComponent.cs" />
+    <Compile Include="Models\PY_PayrollFormulaSalary.cs" />
+    <Compile Include="Models\PY_PayrollPeriod.cs" />
+    <Compile Include="Models\PY_SalaryComponent.cs" />
+    <Compile Include="Models\PY_TarifComponent.cs" />
+    <Compile Include="Models\PY_VariableComponent.cs" />
+    <Compile Include="Models\SC_MenuUserRole.cs" />
+    <Compile Include="Models\SC_Role.cs" />
+    <Compile Include="Models\SC_User.cs" />
+    <Compile Include="Models\SC_UserRole.cs" />
+    <Compile Include="Models\sjahe_dbcontext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityHelpers\CustomAuthorizeAttribute.cs" />
+    <Compile Include="SecurityHelpers\CustomRoleRequirement.cs" />
+    <Compile Include="SecurityHelpers\SecurityEncryptedDecrypted.cs" />
+    <Compile Include="SecurityHelpers\UserIdentity.cs" />
+    <Compile Include="SecurityHelpers\UserMembershipProvider.cs" />
+    <Compile Include="SecurityHelpers\UserPrincipal.cs" />
+    <Compile Include="SecurityHelpers\UserRoleProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

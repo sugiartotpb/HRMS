@@ -1,0 +1,42 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.SC_Role
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SC_Role</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RoleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoleCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoleCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoleDateCreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoleDateCreatedOn)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RoleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

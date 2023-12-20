@@ -1,0 +1,70 @@
+﻿@model PagedList.IPagedList<SJAHE_BASE_LIBRARY.Models.PA_RegEmpOccupation>
+@using PagedList.Mvc;
+
+<div class="table-responsive">
+    <ul class="list-group">
+        @{
+            int i = 0;
+            foreach (var item in Model)
+            {
+                i = i + 1;
+                string strUserName = String.Empty;
+
+                <li class="list-group-item">
+                    <div class="row toggle" id="dropdown-detail-@i" style="cursor: pointer;" data-toggle="detail-@i">
+                        <div class="col-xs-10">
+                            <h4><i class="fa fa-user"> @item.EmpID</i></h4>
+                        </div>
+                        <div class="col-xs-2" id="divFa"><i class="fa fa-plus-square fa-2x pull-right"></i></div>
+                    </div>
+                    <div id="detail-@i">
+                        <hr />
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="fluid-row">
+                                    <p><h5><i class="fa fa-list"></i> EMP NON FIXED COMPONENT LIST @item.EmpID</h5></p>
+                                    <a href="@Url.Action("CreateByEmpID", "EmployeeNonFixedComponents", new { EmpID = item.EmpID })" title="ADD NEW NON FIXED COMPONENT @item.EmpID" class="btn btn-danger btn-sm">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                    <hr />
+                                    @Html.Action("EmpNonFixedComponentPartial", "EmployeeNonFixedComponents", new { EmpID = item.EmpID })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        }
+    </ul>
+</div>
+<br />
+
+<div id='Paging' style="text-align: center">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    of @Model.PageCount &nbsp; Total Employee : @ViewBag.CountEmp
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
+<script>
+    $(document).ready(function () {
+        $('[id^=detail-]').hide();
+        $('.toggle').click(function () {
+            $input = $(this);
+            $target = $('#' + $input.attr('data-toggle'));
+            $target.slideToggle();
+            if ($input.find('.col-xs-2 i').attr('class') == "fa fa-plus-square fa-2x pull-right") {
+                $input.find('.col-xs-2 i').removeClass('fa-plus-square fa-2x');
+                $input.find('.col-xs-2 i').addClass('fa-minus-square fa-2x');
+            }
+            else if ($input.find('.col-xs-2 i').attr('class') == "fa pull-right fa-minus-square fa-2x") {
+                $input.find('.col-xs-2 i').removeClass('fa-minus-square fa-2x');
+                $input.find('.col-xs-2 i').addClass('fa-plus-square fa-2x');
+            }
+            else if ($input.find('.col-xs-2 i').attr('class') == "fa pull-right fa-plus-square fa-2x") {
+                $input.find('.col-xs-2 i').removeClass('fa-plus-square fa-2x');
+                $input.find('.col-xs-2 i').addClass('fa-minus-square fa-2x');
+            }
+
+        });
+    });
+</script>

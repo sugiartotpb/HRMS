@@ -1,0 +1,95 @@
+﻿@model IEnumerable<SJAHE_BASE_LIBRARY.Models.AP_SubChildMenu>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="box box-primary">
+    <div class="box-header ui-sortable-handle">
+        <i class="fa fa-clipboard"> Three Menu</i>
+        <div class="box-tools pull-right">
+            <div class="btn-group">
+                <a class="btn btn-danger" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Create", "SubChildMenus")">
+                    <i class="fa fa-plus"> NEW</i>
+                </a>
+                <a class="btn btn-warning" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Index", "SubChildMenus")">
+                    <i class="fa fa-refresh"> REFRESH</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Export", "SubChildMenus")">
+                    <i class="fa fa-sign-out"> EXPORT</i>
+                </a>
+                <a class="btn btn-info" data-position="bottom" data-delay="50" data-tooltip="Add new agent" href="@Url.Action("Import", "SubChildMenus")">
+                    <i class="fa fa-arrow-circle-o-left"> IMPORT</i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AP_SubMenu.SubMenuName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SubChildMenuName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SubChildUrl)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SubChildMenuCreatedBy)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SubChildMenuCreatedOn)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SubChildMenuStatus)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AP_SubMenu.SubMenuName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubChildMenuName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubChildUrl)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubChildMenuCreatedBy)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubChildMenuCreatedOn)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubChildMenuStatus)
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-primary" data-position="bottom" data-delay="50" title="Edit Records" href="@Url.Action("Edit", "SubChildMenus", new { id=item.SubChildMenuID })">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-info" data-position="bottom" data-delay="50" title="Copy Records" href="@Url.Action("Copy", "SubChildMenus", new { id=item.SubChildMenuID })">
+                                        <i class="fa fa-list"></i>
+                                    </a>
+                                    <a class="btn btn-warning" data-position="bottom" data-delay="50" title="Delete Records" href="@Url.Action("Delete", "SubChildMenus", new { id=item.SubChildMenuID })">
+                                        <i class="fa fa-remove"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

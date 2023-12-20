@@ -1,0 +1,82 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.PY_PayrollFormulaSalary
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PY_PayrollFormulaSalary</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PY_SalaryComponent.SalaryComponentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PY_SalaryComponent.SalaryComponentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SequenceNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SequenceNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Condition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Condition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Formula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlagProcess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlagProcess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PayrollFormulaSalaryID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

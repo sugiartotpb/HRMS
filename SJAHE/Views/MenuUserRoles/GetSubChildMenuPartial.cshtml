@@ -1,0 +1,11 @@
+﻿@model IEnumerable<SJAHE_BASE_LIBRARY.Models.AP_SubChildMenu>
+
+<div class="row">
+    @foreach (var i in Model)
+    {
+        <div class="col-md-3">
+            <input type="checkbox" class="chkSubChildMenu" value="@i.SubChildMenuID" name="SubChildMenuID[]" id="SubChildMenuID[]" onclick="SubChildMenuFunction();" /> @i.SubChildMenuName
+        </div>
+    }
+</div>
+

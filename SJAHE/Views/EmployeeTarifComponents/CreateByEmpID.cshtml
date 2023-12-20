@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SJAHE_BASE_LIBRARY.Models.PY_TarifComponent>
+
+@{
+    ViewBag.Title = "CreateByEmpID";
+}
+
+<ul class="breadcrumb">
+    <li>
+        <a href="@Url.Action("Index", "Home")">HOME</a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "EmployeeTarifComponents")">EMP TARIF COMPONENT LIST</a>
+    </li>
+    <li class="active">
+        EMP TARIF COMPONENT CREATE
+    </li>
+</ul>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-blue">
+                <div class="panel-heading">
+                    <h5>TARIF COMPONENT LIST</h5>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <input type="hidden" value="@ViewBag.Count" id="Count" name="Count" />
+                        <input type="hidden" value="@ViewBag.EmpID" id="EmployeeNo" name="EmployeeNo" />
+                        @{
+                            int j = 0;
+                            foreach (var i in Model)
+                            {
+                                j += 1;
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @i.TarifComponentName
+                                        <div class="material-switch pull-right">
+                                            <input type="checkbox" onclick="TarifFunction(this);" id="@j" name="chkTarif[]" title="@j" value="@i.TarifComponentID" />
+                                            <label for="@j" class="label-primary"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" id="TarifValue_@j" name="txtValue[]" class="form-control" disabled="disabled" value="0" />
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                    <div class="form-group">
+                        <div class="">
+                            <input type="submit" value="Create" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                            }
+<script>
+    function TarifFunction(a) {
+        debugger;
+        if (a.checked) {
+            var a = $(a).attr('id');
+            var b = 'TarifValue_' + a;
+            document.getElementById(b).disabled = false;
+        }
+        else {
+            var a = $(a).attr('id');
+            var b = 'TarifValue_' + a;
+            document.getElementById(b).disabled = true;
+        }
+    }
+</script>

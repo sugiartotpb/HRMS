@@ -1,0 +1,50 @@
+﻿@model SJAHE_BASE_LIBRARY.Models.AP_ApplicationModule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AP_ApplicationModule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationModuleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationModuleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationModuleCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationModuleCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationModuleCreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationModuleCreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationModuleStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationModuleStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ApplicationModuleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

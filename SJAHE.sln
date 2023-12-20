@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SJAHE", "SJAHE\SJAHE.csproj", "{3DE027DC-D02F-43D8-825F-9D49AB3FFA72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SJAHE_BASE_LIBRARY", "SJAHE_BASE_LIBRARY\SJAHE_BASE_LIBRARY.csproj", "{2A67B210-8669-4DFF-A812-D70BED2C996A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DE027DC-D02F-43D8-825F-9D49AB3FFA72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE027DC-D02F-43D8-825F-9D49AB3FFA72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DE027DC-D02F-43D8-825F-9D49AB3FFA72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE027DC-D02F-43D8-825F-9D49AB3FFA72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A67B210-8669-4DFF-A812-D70BED2C996A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A67B210-8669-4DFF-A812-D70BED2C996A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A67B210-8669-4DFF-A812-D70BED2C996A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A67B210-8669-4DFF-A812-D70BED2C996A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
